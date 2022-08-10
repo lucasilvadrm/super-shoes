@@ -4,6 +4,10 @@ export const StyledCarousel = styled.div`
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Item = styled.div`

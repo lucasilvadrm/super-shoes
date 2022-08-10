@@ -12,17 +12,22 @@ const Carousel = () => {
       .then(setData);
   }, []);
 
-  const carousel = useRef(null);
+  const carousel = useRef<HTMLHeadingElement>(null);
+
   if (!data || !data.length) return null;
 
   const handleLeftClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(carousel.current.offsetWidth);
+    if (carousel.current) {
+      carousel.current.scrollLeft -= carousel.current?.offsetWidth;
+    }
   };
 
   const handleRightClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
-    console.log(carousel.current.offsetWidth);
+    if (carousel.current) {
+      carousel.current.scrollLeft += carousel.current?.offsetWidth;
+    }
   };
 
   return (
